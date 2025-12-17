@@ -234,32 +234,43 @@ footer{
 </div>
 
 <script>
-function openPopup(){
-  document.getElementById("popup").style.display="flex";
-}
-function closePopup(){
-  document.getElementById("popup").style.display="none";
-}
-
-const text = "Graphic Designer | Web Developer";
-let i = 0;
-function typingEffect(){
-  if(i < text.length){
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typingEffect, 80);
+  function openPopup(){
+    document.getElementById("popup").style.display="flex";
   }
-}
-typingEffect();
-
-window.addEventListener("scroll", ()=>{
-  document.querySelectorAll(".reveal").forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight - 100){
-      el.classList.add("active");
+  function closePopup(){
+    document.getElementById("popup").style.display="none";
+  }
+  
+  /* Typing Effect */
+  const text = "Graphic Designer | Web Developer";
+  let i = 0;
+  function typingEffect(){
+    if(i < text.length){
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typingEffect, 80);
     }
-  });
-});
-</script>
+  }
+  typingEffect();
+  
+  /* Scroll Reveal FIXED */
+  function revealOnScroll(){
+    document.querySelectorAll(".reveal").forEach(el=>{
+      const top = el.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+  
+      if(top < windowHeight - 100){
+        el.classList.add("active");
+      }
+    });
+  }
+  
+  window.addEventListener("scroll", revealOnScroll);
+  
+  /* 🔥 IMPORTANT: page load par bhi call */
+  window.addEventListener("load", revealOnScroll);
+  </script>
+  
 
 </body>
 </html>
