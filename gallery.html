@@ -5,22 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery | Kanhya Graphic World</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===== GLOBAL ===== */
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box;margin:0;padding:0;}
 body{
-  margin:0;
   font-family:'Poppins',sans-serif;
   background:#f7f9ff;
   color:#333;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header{
   position:sticky;
   top:0;
@@ -29,7 +24,7 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:15px 50px;
-  background:#ffffff;
+  background:#fff;
   box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 .logo{
@@ -51,10 +46,10 @@ nav a{
 }
 nav a:hover{color:#3f51b5;}
 
-/* ===== CONTENT ===== */
+/* CONTENT */
 .content{
   max-width:1200px;
-  margin:50px auto;
+  margin:60px auto;
   padding:0 20px;
   text-align:center;
 }
@@ -65,30 +60,11 @@ nav a:hover{color:#3f51b5;}
 .content p{
   font-size:18px;
   color:#555;
-  margin-bottom:25px;
+  margin-bottom:35px;
 }
 
-/* ===== BUTTON ===== */
-.btn{
-  padding:14px 36px;
-  background:#3f51b5;
-  color:#fff;
-  border:none;
-  border-radius:40px;
-  font-size:16px;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.3s;
-}
-.btn:hover{
-  box-shadow:0 0 18px rgba(63,81,181,0.6);
-  transform:scale(1.05);
-}
-
-/* ===== GALLERY ===== */
+/* GALLERY GRID */
 .gallery{
-  display:none;
-  margin-top:40px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:22px;
@@ -106,7 +82,7 @@ nav a:hover{color:#3f51b5;}
   transform:scale(1.08);
 }
 
-/* ===== POPUP ===== */
+/* POPUP */
 .popup{
   display:none;
   position:fixed;
@@ -130,7 +106,7 @@ nav a:hover{color:#3f51b5;}
   cursor:pointer;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
   margin-top:70px;
   text-align:center;
@@ -139,7 +115,7 @@ footer{
   color:#555;
 }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media(max-width:768px){
   header{
     flex-direction:column;
@@ -152,10 +128,9 @@ footer{
 
 <body>
 
-<!-- ===== HEADER ===== -->
 <header>
   <div class="logo">
-    <img src="gallery/kanhya graphic world.png" alt="Logo">
+    <img src="kanhya graphic world.png" alt="Logo">
     <span>Kanhya Graphic World</span>
   </div>
   <nav>
@@ -168,30 +143,26 @@ footer{
   </nav>
 </header>
 
-<!-- ===== GALLERY CONTENT ===== -->
 <div class="content">
   <h1>My Design Gallery</h1>
-  <p>Click the button to view my creative design work</p>
+  <p>Some of my recent graphic design work</p>
 
-  <button class="btn" onclick="toggleGallery()">Show Designs</button>
-
-  <div id="gallery" class="gallery">
-    <img src="gallery/SHAKTI MOTORS.png" onclick="openPopup(this.src)">
-    <img src="gallery/new design.png" onclick="openPopup(this.src)">
-    <img src="gallery/logo7.png" onclick="openPopup(this.src)">
-    <img src="gallery/logo4.png" onclick="openPopup(this.src)">
-    <img src="gallery/logo17.png" onclick="openPopup(this.src)">
-    <img src="gallery/logo15.png" onclick="openPopup(this.src)">
-    <img src="gallery/logo13a.png" onclick="openPopup(this.src)">
-    <img src="gallery/kanhya graphic world.png" onclick="openPopup(this.src)">
-    <img src="gallery/kaali face.jpg" onclick="openPopup(this.src)">
-    <img src="gallery/Image 2.jpeg" onclick="openPopup(this.src)">
-    <img src="gallery/image 1.jpeg" onclick="openPopup(this.src)">
-    <img src="gallery/design 5.png" onclick="openPopup(this.src)">
+  <div class="gallery">
+    <img src="SHAKTI MOTORS.png" onclick="openPopup(this.src)">
+    <img src="new design.png" onclick="openPopup(this.src)">
+    <img src="logo7.png" onclick="openPopup(this.src)">
+    <img src="logo4.png" onclick="openPopup(this.src)">
+    <img src="logo17.png" onclick="openPopup(this.src)">
+    <img src="logo15.png" onclick="openPopup(this.src)">
+    <img src="logo13a.png" onclick="openPopup(this.src)">
+    <img src="kanhya graphic world.png" onclick="openPopup(this.src)">
+    <img src="kaali face.jpg" onclick="openPopup(this.src)">
+    <img src="Image 2.jpeg" onclick="openPopup(this.src)">
+    <img src="image 1.jpeg" onclick="openPopup(this.src)">
+    <img src="design 5.png" onclick="openPopup(this.src)">
   </div>
 </div>
 
-<!-- ===== POPUP ===== -->
 <div class="popup" id="popup" onclick="closePopup()">
   <span>&times;</span>
   <img id="popupImg">
@@ -202,24 +173,10 @@ footer{
 </footer>
 
 <script>
-function toggleGallery(){
-  const gallery = document.getElementById("gallery");
-  const btn = document.querySelector(".btn");
-
-  if(gallery.style.display === "grid"){
-    gallery.style.display = "none";
-    btn.innerText = "Show Designs";
-  }else{
-    gallery.style.display = "grid";
-    btn.innerText = "Hide Designs";
-  }
-}
-
 function openPopup(src){
   document.getElementById("popup").style.display="flex";
   document.getElementById("popupImg").src = src;
 }
-
 function closePopup(){
   document.getElementById("popup").style.display="none";
 }
